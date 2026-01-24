@@ -1,0 +1,168 @@
+PS C:\Users\HELLO>mkdir MyProject
+
+PS C:\Users\HELLO>cd MyProject
+PS C:\Users\HELLO\MyProject>
+
+PS C:\Users\HELLO\MyProject> explorer .
+
+PS C:\Users\HELLO\MyProject> git init
+Initialized empty Git repository in C:/Users/HELLO/MyProject/.git/
+PS C:\Users\HELLO\MyProject>
+
+
+BEFORE CREATING README FILE
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+
+AFTER CREATING README FILE/WORKING SPACE
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        readme.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+ADD README FILE TO STAGING AREA
+PS C:\Users\HELLO\MyProject> git add readme.txt
+or 
+PS C:\Users\HELLO\MyProject> git add .
+
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   readme.txt
+
+
+COMMIT README FILE TO GIT
+PS C:\Users\HELLO\MyProject> git commit -m "create readme file"
+[master (root-commit) 5a9324e] create readme file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject>
+
+
+
+
+
+2ND COMMIT TASK
+
+
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\HELLO\MyProject> git add .
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   readme.txt
+
+PS C:\Users\HELLO\MyProject>
+
+
+AFTER THOMAS
+
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   readme.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   readme.txt
+
+PS C:\Users\HELLO\MyProject> git diff readme.txt
+diff --git a/readme.txt b/readme.txt
+index 6d9fe02..df46350 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,3 +1,3 @@
+ Welcome to my project
+
+-Author:
+\ No newline at end of file
++Author: Thomas
+\ No newline at end of file
+PS C:\Users\HELLO\MyProject> git diff
+diff --git a/readme.txt b/readme.txt
+index 6d9fe02..df46350 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,3 +1,3 @@
+ Welcome to my project
+
+-Author:
+\ No newline at end of file
++Author: Thomas
+\ No newline at end of file
+PS C:\Users\HELLO\MyProject> git diff --staged
+diff --git a/readme.txt b/readme.txt
+index fbf4186..6d9fe02 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1 +1,3 @@
+-Welcome to my project
+\ No newline at end of file
++Welcome to my project
++
++Author:
+\ No newline at end of file
+PS C:\Users\HELLO\MyProject>
+
+
+
+PS C:\Users\HELLO\MyProject> git log
+commit 5a9324ea3a02885b235448c2c7c0216c53490734 (HEAD -> master)
+Author: Ngwu Maxwell C. <maxchimaobingwu@gmail.com>
+Date:   Wed Feb 26 16:25:06 2025 +0100
+
+    create readme file
+PS C:\Users\HELLO\MyProject> git log --pretty=oneline
+5a9324ea3a02885b235448c2c7c0216c53490734 (HEAD -> master) create readme file
+PS C:\Users\HELLO\MyProject> git checkout 5a9324
+M       readme.txt
+Note: switching to '5a9324'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 5a9324e create readme file
+PS C:\Users\HELLO\MyProject> git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+PS C:\Users\HELLO\MyProject>
