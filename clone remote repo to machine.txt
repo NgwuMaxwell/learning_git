@@ -1,0 +1,85 @@
+PS C:\Users\HELLO> mkdir MyProject_Copy
+
+
+    Directory: C:\Users\HELLO
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          3/1/2025   4:31 PM                MyProject_Copy
+
+
+PS C:\Users\HELLO> cd MyProject_Copy
+PS C:\Users\HELLO\MyProject_Copy> git clone https://github.com/NgwuMaxwell/git-for-beginners-my-project.git .
+Cloning into '.'...
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 15 (delta 0), reused 15 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (15/15), done.
+PS C:\Users\HELLO\MyProject_Copy> explorer .
+PS C:\Users\HELLO\MyProject_Copy> git remote origin
+error: unknown subcommand: `origin'
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename [--[no-]progress] <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --[no-]verbose    be verbose; must be placed before a subcommand
+
+PS C:\Users\HELLO\MyProject_Copy> git remote
+origin
+PS C:\Users\HELLO\MyProject_Copy> git remote -v
+origin  https://github.com/NgwuMaxwell/git-for-beginners-my-project.git (fetch)
+origin  https://github.com/NgwuMaxwell/git-for-beginners-my-project.git (push)
+PS C:\Users\HELLO\MyProject_Copy> git remote show origin
+* remote origin
+  Fetch URL: https://github.com/NgwuMaxwell/git-for-beginners-my-project.git
+  Push  URL: https://github.com/NgwuMaxwell/git-for-beginners-my-project.git
+  HEAD branch: master
+  Remote branch:
+    master tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
+PS C:\Users\HELLO\MyProject_Copy> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\HELLO\MyProject_Copy> git add .
+PS C:\Users\HELLO\MyProject_Copy> git commit -m "Add website to readme"
+[master 87f0996] Add website to readme
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS C:\Users\HELLO\MyProject_Copy> git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject_Copy> git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 354 bytes | 118.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/NgwuMaxwell/git-for-beginners-my-project.git
+   16c4cf7..87f0996  master -> master
+PS C:\Users\HELLO\MyProject_Copy>
