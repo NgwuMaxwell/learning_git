@@ -1,0 +1,149 @@
+PS C:\Users\HELLO> cd MyProject
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+
+PS C:\Users\HELLO\MyProject> git commit -m "commit file to database"
+[master 912bdca] commit file to database
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitignore
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject> git branch feature/AddTwitterHandle
+PS C:\Users\HELLO\MyProject> git branch
+  feature/AddTwitterHandle
+* master
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject> git checkout 'feature/AddTwitterHandle'
+Switched to branch 'feature/AddTwitterHandle'
+PS C:\Users\HELLO\MyProject> git status
+On branch feature/AddTwitterHandle
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject> git status
+On branch feature/AddTwitterHandle
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\HELLO\MyProject> git add .
+PS C:\Users\HELLO\MyProject> git status
+On branch feature/AddTwitterHandle
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   readme.txt
+
+PS C:\Users\HELLO\MyProject> git commit -m "Add twitter handle"
+[feature/AddTwitterHandle e77276c] Add twitter handle
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS C:\Users\HELLO\MyProject> git status
+On branch feature/AddTwitterHandle
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject>
+
+
+
+SWITCH, MERGE AND DELETE
+
+
+PS C:\Users\HELLO\MyProject> git branch
+* feature/AddTwitterHandle
+  master
+PS C:\Users\HELLO\MyProject>
+PS C:\Users\HELLO\MyProject> git log --pretty=oneline
+e77276cc2db09a0cd7b5761e587f0a6c08a59f42 (HEAD -> feature/AddTwitterHandle) Add twitter handle
+912bdca4b7a17d4f6e92d2c0743771d571baf879 (master) commit file to database
+39638265dfd785656270deb6b1123f39eef0020a Create Readme file
+PS C:\Users\HELLO\MyProject> git checkout master
+Switched to branch 'master'
+PS C:\Users\HELLO\MyProject> git branch
+  feature/AddTwitterHandle
+* master
+PS C:\Users\HELLO\MyProject> git log --pretty=oneline
+912bdca4b7a17d4f6e92d2c0743771d571baf879 (HEAD -> master) commit file to database
+39638265dfd785656270deb6b1123f39eef0020a Create Readme file
+PS C:\Users\HELLO\MyProject> git branch
+  feature/AddTwitterHandle
+* master
+PS C:\Users\HELLO\MyProject> git merge feature/AddTwitterHandle
+Updating 912bdca..e77276c
+Fast-forward
+ readme.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject> git log --pretty=oneline
+e77276cc2db09a0cd7b5761e587f0a6c08a59f42 (HEAD -> master, feature/AddTwitterHandle) Add twitter handle
+912bdca4b7a17d4f6e92d2c0743771d571baf879 commit file to database
+39638265dfd785656270deb6b1123f39eef0020a Create Readme file
+PS C:\Users\HELLO\MyProject> git branch -d feature/AddTwitterHandle
+Deleted branch feature/AddTwitterHandle (was e77276c).
+PS C:\Users\HELLO\MyProject> git branch
+* master
+PS C:\Users\HELLO\MyProject>
+
+
+
+MERGE CONFLICTS
+
+PS C:\Users\HELLO\MyProject> git branch
+* master
+PS C:\Users\HELLO\MyProject> git branch feature/lastname
+PS C:\Users\HELLO\MyProject> git branch feature/middlename
+PS C:\Users\HELLO\MyProject> git branch
+  feature/lastname
+  feature/middlename
+* master
+PS C:\Users\HELLO\MyProject> gir checkout feature/lastname
+gir : The term 'gir' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ gir checkout feature/lastname
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (gir:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\HELLO\MyProject> git checkout feature/lastname
+Switched to branch 'feature/lastname'
+PS C:\Users\HELLO\MyProject> git status
+On branch feature/lastname
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\HELLO\MyProject> git add .
+PS C:\Users\HELLO\MyProject> git status
+On branch feature/lastname
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   readme.txt
+
+PS C:\Users\HELLO\MyProject> git commit -m "Add lastname"
+[feature/lastname 5ee95b6] Add lastname
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\HELLO\MyProject> git status
+On branch feature/lastname
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject> git checkout master
+Switched to branch 'master'
+PS C:\Users\HELLO\MyProject> git merge feature/lastname
+Updating e77276c..5ee95b6
+Fast-forward
+ readme.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\HELLO\MyProject>  git branch
+  feature/lastname
+  feature/middlename
+* master
+PS C:\Users\HELLO\MyProject> git branch -d feature/lastname
+Deleted branch feature/lastname (was 5ee95b6).
+PS C:\Users\HELLO\MyProject>
