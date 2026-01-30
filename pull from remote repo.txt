@@ -1,0 +1,149 @@
+PS C:\Users\HELLO> cd MyProject_copy
+PS C:\Users\HELLO\MyProject_copy> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject_copy> git log --oneline
+87f0996 (HEAD -> master, origin/master, origin/HEAD) Add website to readme
+16c4cf7 Add course name to readme title
+5ee95b6 Add lastname
+e77276c Add twitter handle
+912bdca commit file to database
+3963826 Create Readme file
+PS C:\Users\HELLO\MyProject_copy> cd ..\MyProject
+PS C:\Users\HELLO\MyProject> log --oneline
+log : The term 'log' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was
+included, verify that the path is correct and try again.
+At line:1 char:1
++ log --oneline
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (log:String) [], CommandNotFoundExce
+   ption
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\HELLO\MyProject> git log --oneline
+16c4cf7 (HEAD -> master, origin/master) Add course name to readme title
+5ee95b6 Add lastname
+e77276c (feature/middlename) Add twitter handle
+912bdca commit file to database
+3963826 Create Readme file
+PS C:\Users\HELLO\MyProject> notepad readme.txt
+PS C:\Users\HELLO\MyProject> git pull origin master
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 334 bytes | 27.00 KiB/s, done.
+From https://github.com/NgwuMaxwell/git-for-beginners-my-project
+ * branch            master     -> FETCH_HEAD
+   16c4cf7..87f0996  master     -> origin/master
+Updating 16c4cf7..87f0996
+Fast-forward
+ readme.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS C:\Users\HELLO\MyProject> git log --oneline
+87f0996 (HEAD -> master, origin/master) Add website to readme
+16c4cf7 Add course name to readme title
+5ee95b6 Add lastname
+e77276c (feature/middlename) Add twitter handle
+912bdca commit file to database
+3963826 Create Readme file
+PS C:\Users\HELLO\MyProject> notepad readme.txt
+PS C:\Users\HELLO\MyProject>
+
+
+UNDERSTANDING GIT PULL
+
+
+PS C:\Users\HELLO> cd MyProject_copy
+PS C:\Users\HELLO\MyProject_copy> notepad readme.txt
+PS C:\Users\HELLO\MyProject_copy> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\HELLO\MyProject_copy> git add .
+PS C:\Users\HELLO\MyProject_copy> git commit -m "add https:// to website"
+[master 52a38a7] add https:// to website
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\HELLO\MyProject_copy> git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 357 bytes | 357.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/NgwuMaxwell/git-for-beginners-my-project.git
+   87f0996..52a38a7  master -> master
+PS C:\Users\HELLO\MyProject_copy>
+PS C:\Users\HELLO\MyProject_copy> git log --oneline
+52a38a7 (HEAD -> master, origin/master, origin/HEAD) add https:// to website
+87f0996 Add website to readme
+16c4cf7 Add course name to readme title
+5ee95b6 Add lastname
+e77276c Add twitter handle
+912bdca commit file to database
+3963826 Create Readme file
+PS C:\Users\HELLO\MyProject_copy> cd ..MyProject
+PS C:\Users\HELLO\MyProject> git log --oneline
+87f0996 (HEAD -> master, origin/master) Add website to readme
+16c4cf7 Add course name to readme title
+5ee95b6 Add lastname
+e77276c (feature/middlename) Add twitter handle
+912bdca commit file to database
+3963826 Create Readme file
+PS C:\Users\HELLO\MyProject> git fetch origin master
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 337 bytes | 37.00 KiB/s, done.
+From https://github.com/NgwuMaxwell/git-for-beginners-my-project
+ * branch            master     -> FETCH_HEAD
+   87f0996..52a38a7  master     -> origin/master
+PS C:\Users\HELLO\MyProject> git log --oneline
+87f0996 (HEAD -> master) Add website to readme
+16c4cf7 Add course name to readme title
+5ee95b6 Add lastname
+e77276c (feature/middlename) Add twitter handle
+912bdca commit file to database
+3963826 Create Readme file
+PS C:\Users\HELLO\MyProject> git status
+On branch master
+Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+PS C:\Users\HELLO\MyProject> git branch
+  feature/middlename
+* master
+PS C:\Users\HELLO\MyProject> git branch -a
+  feature/middlename
+* master
+  remotes/origin/master
+PS C:\Users\HELLO\MyProject> git merge origin/master
+Updating 87f0996..52a38a7
+Fast-forward
+ readme.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS C:\Users\HELLO\MyProject> notepad readme.txt
+PS C:\Users\HELLO\MyProject> git log --oneline
+52a38a7 (HEAD -> master, origin/master) add https:// to website
+87f0996 Add website to readme
+16c4cf7 Add course name to readme title
+5ee95b6 Add lastname
+e77276c (feature/middlename) Add twitter handle
+912bdca commit file to database
+3963826 Create Readme file
+PS C:\Users\HELLO\MyProject> git fetch
+PS C:\Users\HELLO\MyProject> git pull
+Already up to date.
+PS C:\Users\HELLO\MyProject>
